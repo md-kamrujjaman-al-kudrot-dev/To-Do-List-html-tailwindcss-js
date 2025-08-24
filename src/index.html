@@ -1,13 +1,66 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+
+<body class="bg-black">
+  <section class="p-10">
+    <div class="bg-gray-400  w-96 rounded">
+
+      <div class="p-4 flex justify-center items-center gap-2 flex-col">
+
+        <p class="text-4xl font-bold font-sans">Todo List</p>
+
+        <div class="border bg-gray-200 rounded">
+          <input class="p-1 pl-3  focus:outline-none " type="text" placeholder="Add a new todo...">
+
+          <button class="p-1 bg-gray-300 rounded cursor-pointer">Add</button>
+        </div>
+
+        <div class="border bg-gray-200 rounded w-62">
+          <input class="p-1 pl-3 rounded-xl focus:outline-none " type="text" placeholder="Search...">
+        </div>
+
+        <div class="w-62 flex gap-2 items-start">
+          <button class="p-1 bg-gray-300 rounded cursor-pointer">All</button>
+          <button class="p-1 bg-gray-300 rounded cursor-pointer">Active</button>
+          <button class="p-1 bg-gray-300 rounded cursor-pointer">Completed</button>
+        </div>
+
+        <div class="w-60 border border-gray-500 p-2 ">
+
+          <div class="flex gap-2  border-b border-gray-300 p-2">
+            <input class="cursor-pointer" type="checkbox">
+            <p class="font-bold">Buy groceries</p>
+          </div>
+          <div class="flex gap-2  border-b border-gray-300 p-2">
+            <input class="cursor-pointer" type="checkbox">
+            <p class="font-bold">Buy groceries</p>
+          </div>
+          <div class="flex gap-2  border-b border-gray-300 p-2">
+            <input class="cursor-pointer" type="checkbox">
+            <p class="font-bold">Buy groceries</p>
+          </div>
+          <div class="flex gap-2  border-b border-gray-300 p-2">
+            <input class="cursor-pointer" type="checkbox">
+            <p class="font-bold">Buy groceries</p>
+          </div>
+          <div class="flex gap-2  border-b border-gray-300 p-2">
+            <input class="cursor-pointer" type="checkbox">
+            <p class="font-bold">Buy groceries</p>
+          </div>
+
+        </div>
+
+        <button class="p-1 bg-gray-300 rounded cursor-pointer">Clear Completed</button>
+
+
+      </div>
+  </section>
 </body>
+
 </html>
