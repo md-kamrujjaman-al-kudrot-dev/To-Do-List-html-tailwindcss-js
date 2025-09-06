@@ -2,12 +2,25 @@
 const input = document.getElementById("input");
 const addButton = document.getElementById("add_button");
 const list = document.getElementById("todo_list");
+const Clear_Completed = document.getElementById("Clear_Completed")
+const All_btn = document.getElementById("All_btn")
 
 
+
+window.onload = function () {
+    const todos = JSON.parse(localStorage.getItem("todo") || "[]");
+
+
+    todos.forEach(element => {
+        addToUi(element);
+    });
+
+
+}
 
 
 // Event Listener for Add Button
-addButton.addEventListener("click", () => {
+const MainDataShow = addButton.addEventListener("click", () => {
     const value = input.value.trim();
 
     // Prevent empty input
@@ -20,6 +33,8 @@ addButton.addEventListener("click", () => {
 
 
     addToUi(value);
+
+
     // Clear input field
     input.value = "";
 });
@@ -31,7 +46,7 @@ function addToUi(value) {
     const checkbox = document.createElement("input");
     const wrapper = document.createElement("div");
     const Button = document.createElement("button")
-    
+
 
     // Configure checkbox
     checkbox.type = "checkbox";
@@ -39,10 +54,30 @@ function addToUi(value) {
 
     // Configure button
     Button.classList.add(
-        "bg-gray-200","pl-1","pr-1","mb-1","text-[0.8rem]","cursor-pointer","rounded"
+        "bg-gray-200", "pl-1", "pr-1", "text-[0.5rem]", "cursor-pointer", "rounded"
 
     )
-    Button.innerText = "cancle"
+    Button.innerText = "❌"
+
+
+    Button.addEventListener("click", (index) => {
+        let todos = JSON.parse(localStorage.getItem("todo") || "[]")
+        todos.splice(index, 1);
+        localStorage.setItem("todo", JSON.stringify(todos))
+        wrapper.remove();
+    })
+
+    Clear_Completed.addEventListener("click", () => {
+        let todos = JSON.parse(localStorage.removeItem("todo") || "[]")
+        localStorage.clear("todo", JSON.stringify(todos))
+        wrapper.remove();
+    })
+
+    All_btn.addEventListener("click", () => {
+        let todos = JSON.parse(localStorage.getItem("todo") || "[]")
+        localStorage.setItem("todo", JSON.stringify(todos))
+    })
+
 
 
     // Configure list item
